@@ -1,4 +1,4 @@
-NetduinoPlus-HAUS
-=================
+HAUS
+====
 
-Home AUtomation System for Netduino
+Home AUtomation System
