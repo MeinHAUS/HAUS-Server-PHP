@@ -1,0 +1,69 @@
+
+HAUS - the Home AUtomation System
+
+================================================================================
+Copyright 2012 Mark Hensler
+--------------------------------------------------------------------------------
+HAUS is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+HAUS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
+================================================================================
+
+
+================================================================================
+About HAUS
+--------------------------------------------------------------------------------
+HAUS is designed with two parts:
+    o A single, front-facing HAUS Server, which is responsible for providing a
+      user interface.
+    o One or more HAUS Devices, which listen for commands from the HAUS Server
+      and respond by performing a home automation task.
+================================================================================
+
+
+================================================================================
+Package Contents
+--------------------------------------------------------------------------------
+At the top level, along with the READY and COPYING files, you should see
+directories for Servers and Devices.
+
+Under the Servers directory, you'll see a list of web servers for which a HAUS
+Server has been developed.
+
+Under the Deveices directory, you'll see a list of hardware platforms for which
+HAUS Devices have been developed.
+
+Your package contents may look something like this:
+    ~/COPYING
+    ~/README
+    ~/Devices/
+        Netduino/
+            Lights/
+            Sprinklers/
+        NetduinoPlus/
+            DoorLock/
+            GarageDoor/
+            SolarPannels/
+            Thermostat/
+    ~/Servers/
+        ApacheHttpd/
+        IIS/
+        Tomcat/
+================================================================================
+
+
+================================================================================
+Installation
+--------------------------------------------------------------------------------
+Installation notes should be included with each HAUS Server and HAUS Device.
+================================================================================
+                             -= End Transmission =-                             
