@@ -1,37 +1,35 @@
 {
-	"DeviceControler" : {
-		"Devices" : [
-			{
-				"Name" : "Porch Light",
-				"Type" : "ToggleLight",
-				"Config" : {
-					"DigitalPin": 0,
-					"Boot" : "Off"
-				}
-			},
-			{
-				"Name" : "Living Room Lights",
-				"Type" : "DimmerLight",
-				"Config" : {
-					"AnalogPin" : 4,
-					"Boot" : "Off",
-					"MinValue" : 0,
-					"MaxValue" : 70,
-					"StepSize" : 5,
-				}
-			},
-			{
-				"Name" : "Garage Door",
-				"Type" : "GarageDoor",
-				"Config" : {
-					"Motor" : {
-						"DigitalPin" : 2
-					},
-					"Sensor: : {
-						"DigitalPin" : 3
-					}
+	"Devices" : [
+		{
+			"Name" : "Porch Light",
+			"Type" : "ToggleLight",
+			"Config" : {
+				"DigitalPin": 0,
+				"Boot" : "Off"
+			}
+		},
+		{
+			"Name" : "Living Room Lights",
+			"Type" : "DimmerLight",
+			"Config" : {
+				"AnalogPin" : 4,
+				"Boot" : "Off",
+				"MinValue" : 0,
+				"MaxValue" : 70,
+				"StepSize" : 5,
+			}
+		},
+		{
+			"Name" : "Garage Door",
+			"Type" : "GarageDoor",
+			"Config" : {
+				"Motor" : {
+					"DigitalPin" : 2
+				},
+				"Sensor: : {
+					"DigitalPin" : 3
 				}
 			}
-		]
-	}
+		}
+	]
 }
