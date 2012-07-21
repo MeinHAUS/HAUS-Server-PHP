@@ -55,9 +55,9 @@ Your package contents may look something like this:
             SolarPannels/
             Thermostat/
     ~/Servers/
-        ApacheHttpd/
-        IIS/
-        Tomcat/
+        csharp/
+        java/
+        php/
 ================================================================================
 
 
