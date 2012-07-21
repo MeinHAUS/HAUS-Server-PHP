@@ -60,6 +60,7 @@ $cfg{'Debug'} = (in_array(strtolower($cfg{'Debug'}), array(1, "1", "enable", "en
 
 <div id="Help" class="hide">
 	<b>Author:</b> Mark Hensler<br />
+	<b>GitHub:</b> <a href="https://github.com/mhensler/HAUS" target="_blank">github.com/mhensler/HAUS</a><br />
 	<br />
 	<a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">Silk icon set</a> by <a href="mailto:mjames@gmail.com">Mark James</a><br />
 </div>
