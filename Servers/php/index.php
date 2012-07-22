@@ -19,11 +19,52 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
+error_reporting(E_ALL);
 
 $cfg_json = implode('', file('./config.json'));
 $cfg = json_decode($cfg_json, true);
 
-$cfg{'Debug'} = (in_array(strtolower($cfg{'Debug'}), array(1, "1", "enable", "enabled", "on", "true", "yes"))) ? true : false;
+$cfg['Debug'] = (in_array(strtolower($cfg['Debug']), array(1, "1", "enable", "enabled", "on", "true", "yes"))) ? true : false;
+
+
+
+
+$cntr[] = array(0);
+function PrintDeviceMenu($menu, $depth=0) {
+	$i = 0;
+	foreach ($menu as $title => $node) {
+		$cntr[$depth] = ++$i;
+		$num = '';
+		for ($j=0; $j<=$depth; $j++) {
+			$num .= '_'.$cntr[$j];
+		}
+		
+		if ($node['SubMenu']) {
+			echo "<div id='SubMenu$num' class='SubMenu'>\n";
+			echo "<div class='SubMenuTitle'>$title</div>\n";
+			echo "<div class='SubMenuContent hide'>\n";
+			PrintDeviceMenu($node, $depth+1);
+			echo "</div>\n";
+			echo "</div>\n";
+		}
+		elseif ($node['Device']) {
+			echo "<div id='Device$num' class='Device'>\n";
+			echo "<div class='DeviceTitle'>$title</div>\n";
+			echo "<div class='DeviceConfig hide'>\n";
+			echo "<pre>".print_r($node, true)."</pre>\n";
+			echo "</div>\n";
+			echo "</div>\n";
+		}
+		else {
+			# not sure what we're looking at
+			# skip it
+			continue;
+		}
+	}
+}
+
+
+
 
 /******************************************************************************/
 ?>
@@ -46,15 +87,29 @@ $cfg{'Debug'} = (in_array(strtolower($cfg{'Debug'}), array(1, "1", "enable", "en
 <div id="ControlPanel">
 	<p id="title">HAUS</p>
 	<!-- ToggleConsole -->
+	<?php if ($cfg["Debug"]) { echo '<div class="ControlButton" id="ToggleDebug" title="Debug"></div>'; } ?>
 	<div class="ControlButton hide" id="ToggleSettings" title="Settings"></div>
 	<div class="ControlButton" id="ToggleHelp" title="About"></div>
 </div>
 
+<?php if ($cfg["Debug"]) { ?>
+<div id="Debug" class="hide">
+	<textarea id="dbgConfig">$cfg = <?php print_r($cfg); ?></textarea>
+</div>
+<?php } ?>
 
 <div id="Settings" class="hide">
 	<div>
 	Settings go here.
 	</div>
+</div>
+
+<div id="Devices" class="show">
+<?php
+
+PrintDeviceMenu($cfg['DeviceMenu'], 0);
+
+?>
 </div>
 
 

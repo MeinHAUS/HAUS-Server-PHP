@@ -11,7 +11,7 @@ if (!Y.UA.mobile) {
         useBrowserConsole: false
     }).use("console", "console-filters", "dd-plugin", function (Y) {
     
-        Y.one('#ControlPanel').insertBefore('<div class="ControlButton" id="ToggleConsole" title="Console"></div>', Y.one('#ToggleSettings'));
+        Y.one('#ControlPanel').insert('<div class="ControlButton" id="ToggleConsole" title="Console"></div>', 1);
              
         var yconsole = new Y.Console({
             logSource: Y.Global,
@@ -40,11 +40,25 @@ if (!Y.UA.mobile) {
 }
 
 /**
- * Create the ControlPanel
+ * Create a Debug screen
  */
 YUI().use('node', function(Y) {
+    
+    function tglDebug(e) {
+        if (Y.one("#Debug").hasClass("show")) {
+            Y.log("Hiding Debug", "info");
+            Y.one("#Debug").replaceClass("show", "hide");
+            Y.one("#ToggleDebug").replaceClass("show", "hide");
+        }
+        else {
+            Y.log("Showing Debug", "info");
+            Y.one("#Debug").replaceClass("hide", "show");
+            Y.one("#ToggleDebug").replaceClass("hide", "show");
+        }
+    }
+    Y.on('click', tglDebug, '#ToggleDebug');
 
-    Y.log("ControlePanel loaded", "info", "HAUS");
+    Y.log("Debug loaded", "info", "HAUS");
 });
 
 /**
@@ -87,6 +101,21 @@ YUI().use('node', function(Y) {
     Y.on('click', tglHelp, '#ToggleHelp');
     
     Y.log("Help loaded", "info", "HAUS");
+});
+
+
+YUI().use('node', function(Y) {
+    Y.on('click', function(e) {
+        devcfg = e.currentTarget.next('.DeviceConfig');
+        if( devcfg.hasClass("show")) {
+                Y.log("Hiding Device", "info");
+                devcfg.replaceClass("show", "hide");
+            }
+            else {
+                Y.log("Showing Device", "info");
+                devcfg.replaceClass("hide", "show");
+            }
+    }, '#Devices .Device .DeviceTitle');
 });
 
 

@@ -27,7 +27,7 @@ td {
 	text-align: right;
 	top: 0px;
 	vertical-align: middle;
-	white-space:nowrap;
+	white-space: nowrap;
 	width: 100%;
 }
 
@@ -50,6 +50,10 @@ td {
 	background-image: url("images/application_osx_terminal.png");
 }
 
+#ToggleDebug {
+	background-image: url("images/bug.png");
+}
+
 #ToggleSettings.show {
 	background-image: url("images/control_equalizer_blue.png");
 }
@@ -62,6 +66,28 @@ td {
 	background-image: url("images/help.png");
 }
 
+
+/**
+ * Debug
+ */
+#Debug.show {
+	background: #c0d0f0;
+	border: 1px outset;
+	display: block;
+	left: 5px;
+	margin: 5px;
+	padding-top: 4px 4px 4px 4px;
+	right: 5px;
+}
+
+#Debug.hide {
+	display: none;
+}
+
+#Debug #dbgConfig {
+	height: 200px;
+	width: 100%;
+}
 
 
 /**
@@ -82,8 +108,70 @@ td {
 	display: none;
 }
 
-#Settings td {
-	valign: top;
+
+/**
+ * Devices
+ */
+#Devices.show {
+	background: #d0d0d0;
+	border: 1px outset;
+	display: block;
+	left: 5px;
+	margin: 5px;
+	padding-top: 4px 4px 4px 4px;
+	right: 5px;
+}
+
+#Devices.hide {
+	display: none;
+}
+
+#Devices .SubMenu {
+	background: #e0e0e0;
+	border: 2px outset;
+	display: block;
+	left: 5px;
+	margin: 6px;
+	padding: 4px;
+	right: 5px;
+}
+
+#Devices .SubMenu .SubMenuTitle {
+	cursor: pointer;
+	display: block;
+	font-size: 1.5em;
+	white-space: nowrap;
+}
+
+#Devices .Device {
+	background: #e0e0e0;
+	border: 2px outset;
+	display: block;
+	left: 5px;
+	margin: 6px;
+	padding: 4px;
+	right: 5px;
+}
+
+#Devices .Device .DeviceTitle {
+	cursor: pointer;
+	display: block;
+	font-size: 1.5em;
+	white-space: nowrap;
+}
+
+#Devices .Device .DeviceConfig.show {
+	background: #e0e0e0;
+	display: block;
+	font-size: 1em;
+	left: 5px;
+	margin: 6px;
+	padding: 4px;
+	right: 5px;
+}
+
+#Devices .Device .DeviceConfig.hide {
+	display: none;
 }
 
 
