@@ -106,6 +106,18 @@ YUI().use('node', function(Y) {
 
 YUI().use('node', function(Y) {
     Y.on('click', function(e) {
+        devcfg = e.currentTarget.next('.SubMenu');
+        if( devcfg.hasClass("show")) {
+                Y.log("Hiding SubMenu", "info");
+                devcfg.replaceClass("show", "hide");
+            }
+            else {
+                Y.log("Showing SubMenu", "info");
+                devcfg.replaceClass("hide", "show");
+            }
+    }, '#Devices .Menu .MenuTitle');
+
+    Y.on('click', function(e) {
         devcfg = e.currentTarget.next('.DeviceConfig');
         if( devcfg.hasClass("show")) {
                 Y.log("Hiding Device", "info");

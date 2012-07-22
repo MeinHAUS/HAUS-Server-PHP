@@ -126,21 +126,33 @@ td {
 	display: none;
 }
 
-#Devices .SubMenu {
-	background: #e0e0e0;
-	border: 2px outset;
+#Devices .Menu {
 	display: block;
 	left: 5px;
 	margin: 6px;
-	padding: 4px;
 	right: 5px;
 }
 
-#Devices .SubMenu .SubMenuTitle {
+#Devices .Menu .MenuTitle {
+	background: #e0e0e0;
+	border: 2px outset;
 	cursor: pointer;
 	display: block;
 	font-size: 1.5em;
+	padding: 4px;
 	white-space: nowrap;
+}
+
+#Devices .Menu .SubMenu.show {
+	display: block;
+	font-size: 1em;
+	left: 5px;
+	margin-left: 6px;
+	right: 5px;
+}
+
+#Devices .Menu .SubMenu.hide {
+	display: none;
 }
 
 #Devices .Device {
@@ -161,7 +173,8 @@ td {
 }
 
 #Devices .Device .DeviceConfig.show {
-	background: #e0e0e0;
+	background: #f0f0f0;
+	border: 2px inset;
 	display: block;
 	font-size: 1em;
 	left: 5px;

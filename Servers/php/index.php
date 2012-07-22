@@ -40,10 +40,10 @@ function PrintDeviceMenu($menu, $depth=0) {
 		}
 		
 		if ($node['SubMenu']) {
-			echo "<div id='SubMenu$num' class='SubMenu'>\n";
-			echo "<div class='SubMenuTitle'>$title</div>\n";
-			echo "<div class='SubMenuContent hide'>\n";
-			PrintDeviceMenu($node, $depth+1);
+			echo "<div id='Menu$num' class='Menu'>\n";
+			echo "<div class='MenuTitle'>$title</div>\n";
+			echo "<div class='SubMenu hide'>\n";
+			PrintDeviceMenu($node['SubMenu'], $depth+1);
 			echo "</div>\n";
 			echo "</div>\n";
 		}
