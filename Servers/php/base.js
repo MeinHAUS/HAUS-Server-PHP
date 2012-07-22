@@ -11,7 +11,7 @@ if (!Y.UA.mobile) {
         useBrowserConsole: false
     }).use("console", "console-filters", "dd-plugin", function (Y) {
     
-        Y.one('#ControlPanel').insertBefore('<div class="ControlButton" id="ToggleConsole"></div>', Y.one('#ToggleSettings'));
+        Y.one('#ControlPanel').insertBefore('<div class="ControlButton" id="ToggleConsole" title="Console"></div>', Y.one('#ToggleSettings'));
              
         var yconsole = new Y.Console({
             logSource: Y.Global,

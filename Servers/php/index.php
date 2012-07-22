@@ -46,8 +46,8 @@ $cfg{'Debug'} = (in_array(strtolower($cfg{'Debug'}), array(1, "1", "enable", "en
 <div id="ControlPanel">
 	<p id="title">HAUS</p>
 	<!-- ToggleConsole -->
-	<div class="ControlButton hide" id="ToggleSettings"></div>
-	<div class="ControlButton" id="ToggleHelp"></div>
+	<div class="ControlButton hide" id="ToggleSettings" title="Settings"></div>
+	<div class="ControlButton" id="ToggleHelp" title="About"></div>
 </div>
 
 
