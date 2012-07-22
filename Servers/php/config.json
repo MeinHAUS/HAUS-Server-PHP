@@ -2,37 +2,38 @@
 	"BasePath" : "/www/haus.markandcrisha.com/htdocs",
 	"BaseURL" : "/haus",
 	"Debug" : "true",
-	"Devices" : [
-		{
-			"Name" : "Porch Light",
-			"Type" : "ToggleLight",
-			"Config" : {
-				"DigitalPin": 0,
-				"Boot" : "Off"
+	"DeviceMenu" : {
+		"Lights" : {
+			"SubMenu" : {
+				"Living Room Lights" : {
+					"Device" : "DimmerLight",
+					"Config" : {
+						"AnalogPin" : 4,
+						"Boot" : "Off",
+						"MinValue" : 0,
+						"MaxValue" : 70,
+						"StepSize" : 5
+					}
+				},
+				"Porch Light" : {
+					"Device" : "ToggleLight",
+					"Config" : {
+						"DigitalPin": 0,
+						"Boot" : "Off"
+					}
+				}
 			}
 		},
-		{
-			"Name" : "Living Room Lights",
-			"Type" : "DimmerLight",
-			"Config" : {
-				"AnalogPin" : 4,
-				"Boot" : "Off",
-				"MinValue" : 0,
-				"MaxValue" : 70,
-				"StepSize" : 5,
-			}
-		},
-		{
-			"Name" : "Garage Door",
-			"Type" : "GarageDoor",
+		"Garage Door" : {
+			"Device" : "GarageDoor",
 			"Config" : {
 				"Motor" : {
 					"DigitalPin" : 2
 				},
-				"Sensor: : {
+				"Sensor" : {
 					"DigitalPin" : 3
 				}
 			}
 		}
-	]
+	}
 }
