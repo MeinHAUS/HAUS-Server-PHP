@@ -17,7 +17,7 @@
 				"Default" : 0,
 				"MinValue" : 0,
 				"MaxValue" : 70,
-				"StepSize" : 5,
+				"StepSize" : 5
 			}
 		},
 		{
@@ -27,7 +27,7 @@
 				"Motor" : {
 					"DigitalPin" : 2
 				},
-				"Sensor: : {
+				"Sensor" : {
 					"DigitalPin" : 3
 				},
 				"ToggleLight" : {
