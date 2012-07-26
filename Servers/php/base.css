@@ -112,7 +112,7 @@ td {
 /**
  * Devices
  */
-#Devices.show {
+#DeviceMenu.show {
 	background: #d0d0d0;
 	border: 1px outset;
 	display: block;
@@ -122,18 +122,18 @@ td {
 	right: 5px;
 }
 
-#Devices.hide {
+#DeviceMenu.hide {
 	display: none;
 }
 
-#Devices .Menu {
+#DeviceMenu .Menu {
 	display: block;
 	left: 5px;
 	margin: 6px;
 	right: 5px;
 }
 
-#Devices .Menu .MenuTitle {
+#DeviceMenu .Menu .MenuTitle {
 	background: #e0e0e0;
 	border: 2px outset;
 	cursor: pointer;
@@ -143,7 +143,7 @@ td {
 	white-space: nowrap;
 }
 
-#Devices .Menu .SubMenu.show {
+#DeviceMenu .Menu .SubMenu.show {
 	display: block;
 	font-size: 1em;
 	left: 5px;
@@ -151,11 +151,11 @@ td {
 	right: 5px;
 }
 
-#Devices .Menu .SubMenu.hide {
+#DeviceMenu .Menu .SubMenu.hide {
 	display: none;
 }
 
-#Devices .Device {
+#DeviceMenu .Device {
 	background: #e0e0e0;
 	border: 2px outset;
 	display: block;
@@ -165,14 +165,14 @@ td {
 	right: 5px;
 }
 
-#Devices .Device .DeviceTitle {
+#DeviceMenu .Device .DeviceTitle {
 	cursor: pointer;
 	display: block;
 	font-size: 1.5em;
 	white-space: nowrap;
 }
 
-#Devices .Device .DeviceConfig.show {
+#DeviceMenu .Device .DeviceConfig.show {
 	background: #f0f0f0;
 	border: 2px inset;
 	display: block;
@@ -183,7 +183,7 @@ td {
 	right: 5px;
 }
 
-#Devices .Device .DeviceConfig.hide {
+#DeviceMenu .Device .DeviceConfig.hide {
 	display: none;
 }
 

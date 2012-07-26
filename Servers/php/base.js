@@ -115,7 +115,7 @@ YUI().use('node', function(Y) {
                 Y.log("Showing SubMenu", "info");
                 devcfg.replaceClass("hide", "show");
             }
-    }, '#Devices .Menu .MenuTitle');
+    }, '#DeviceMenu .Menu .MenuTitle');
 
     Y.on('click', function(e) {
         devcfg = e.currentTarget.next('.DeviceConfig');
@@ -127,7 +127,7 @@ YUI().use('node', function(Y) {
                 Y.log("Showing Device", "info");
                 devcfg.replaceClass("hide", "show");
             }
-    }, '#Devices .Device .DeviceTitle');
+    }, '#DeviceMenu .Device .DeviceTitle');
 });
 
 

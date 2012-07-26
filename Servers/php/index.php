@@ -104,7 +104,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 	</div>
 </div>
 
-<div id="Devices" class="show">
+<div id="DeviceMenu" class="show">
 <?php
 
 PrintDeviceMenu($cfg['DeviceMenu'], 0);
