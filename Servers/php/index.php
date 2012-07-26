@@ -19,12 +19,7 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-error_reporting(E_ALL);
-
-$cfg_json = implode('', file('./config.json'));
-$cfg = json_decode($cfg_json, true);
-
-$cfg['Debug'] = (in_array(strtolower($cfg['Debug']), array(1, "1", "enable", "enabled", "on", "true", "yes"))) ? true : false;
+require_once('./init.php');
 
 
 
