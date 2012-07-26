@@ -5,6 +5,7 @@
 			"Type" : "ToggleLight",
 			"Config" : {
 				"DigitalPin": 0,
+				"DigitalSensor": 1,
 				"Default" : "Off"
 			}
 		},
@@ -30,7 +31,8 @@
 					"DigitalPin" : 3
 				},
 				"ToggleLight" : {
-					"DigitalPin" : 1,
+					"DigitalPin" : 7,
+					"DigitalSensor": 8,
 					"Default" : "Off"
 				}
 			}
