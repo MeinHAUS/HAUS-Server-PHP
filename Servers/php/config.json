@@ -1,5 +1,5 @@
 {
-	"BasePath" : "/www/haus.markandcrisha.com/htdocs",
+	"BasePath" : "/www/htdocs/haus",
 	"BaseURL" : "/haus",
 	"Debug" : "true",
 	"DeviceMenu" : {
