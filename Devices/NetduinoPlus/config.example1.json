@@ -5,7 +5,7 @@
 			"Type" : "ToggleLight",
 			"Config" : {
 				"DigitalPin": 0,
-				"Boot" : "Off"
+				"Default" : "Off"
 			}
 		},
 		{
@@ -13,7 +13,7 @@
 			"Type" : "DimmerLight",
 			"Config" : {
 				"AnalogPin" : 4,
-				"Boot" : "Off",
+				"Default" : 0,
 				"MinValue" : 0,
 				"MaxValue" : 70,
 				"StepSize" : 5,
@@ -28,6 +28,10 @@
 				},
 				"Sensor: : {
 					"DigitalPin" : 3
+				},
+				"ToggleLight" : {
+					"DigitalPin" : 1,
+					"Default" : "Off"
 				}
 			}
 		}
