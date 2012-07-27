@@ -37,11 +37,17 @@ $cfg_json = implode('', file('./config.json'));
 $cfg = json_decode($cfg_json, true);
 
 // Make 'Debug' usable
-$cfg['Debug'] = (in_array(strtolower($cfg['Debug']), array(1, "1", "enable", "enabled", "on", "true", "y", "yes"))) ? TRUE : FALSE;
+$cfg['Debug'] = toBool($cfg['Debug']);
 
 // log the config
-$log->debug('$cfg='.$cfg);
+$log->trace('$cfg='.print_r($cfg, true));
 
 
+
+
+function toBool($string) {
+	return (in_array(strtolower($string),
+		array(1, "1", "enable", "enabled", "on", "true", "y", "yes"))) ? TRUE : FALSE;
+}
 
 ?>
