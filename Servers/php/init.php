@@ -46,6 +46,11 @@ $log->debug('Reading config.json');
 $cfg_json = implode('', file('./config.json'));
 $cfg = json_decode($cfg_json, true);
 
+// Were there problems deconding the json?
+if (is_null($cfg)) {
+	$log->error('Error decoding config.json');
+}
+
 // Make 'Debug' usable
 $cfg['Debug'] = toBool($cfg['Debug']);
 
