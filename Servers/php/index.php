@@ -69,6 +69,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 <meta charset="ISO-8859-1" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <title>HAUS</title>
+<link rel="icon" type="image/png" href="images/house.png" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssbase/cssbase-min.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssfonts/cssfonts-min.css" />
