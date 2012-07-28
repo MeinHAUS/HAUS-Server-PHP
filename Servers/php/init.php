@@ -19,7 +19,7 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-error_reporting(E_ALL);
+error_reporting(E_ALL | E_STRICT);
 
 // First thing we do is detect log4php
 if (include('log4php/Logger.php')) {
