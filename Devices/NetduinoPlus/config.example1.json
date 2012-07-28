@@ -1,19 +1,17 @@
 {
+	"Location" : ["Living Room", "Mein HAUS"],
+	"Network" : {
+		"Gateway" : "192.168.1.1",
+		"IP" : "192.168.1.221",
+		"Netmask" : "255.255.255.0"
+	}
 	"Devices" : [
 		{
-			"Name" : "Porch Light",
-			"Type" : "ToggleLight",
-			"Config" : {
-				"DigitalPin": 0,
-				"DigitalSensor": 1,
-				"Default" : "Off"
-			}
-		},
-		{
+			"DeviceID" : "nlights",
 			"Name" : "Living Room Lights",
-			"Type" : "DimmerLight",
+			"DeviceType" : "DimmerLight",
 			"Config" : {
-				"AnalogPin" : 4,
+				"AnalogPin" : 0,
 				"Default" : 0,
 				"MinValue" : 0,
 				"MaxValue" : 70,
@@ -21,20 +19,35 @@
 			}
 		},
 		{
-			"Name" : "Garage Door",
-			"Type" : "GarageDoor",
+			"DeviceID" : "slights",
+			"Name" : "Living Room Lights",
+			"DeviceType" : "DimmerLight",
 			"Config" : {
-				"Motor" : {
-					"DigitalPin" : 2
-				},
-				"Sensor" : {
-					"DigitalPin" : 3
-				},
-				"ToggleLight" : {
-					"DigitalPin" : 7,
-					"DigitalSensor": 8,
-					"Default" : "Off"
-				}
+				"AnalogPin" : 1,
+				"Default" : 0,
+				"MinValue" : 0,
+				"MaxValue" : 70,
+				"StepSize" : 5
+			}
+		},
+		{
+			"DeviceID" : "stereo",
+			"Name" : "Stereo",
+			"DeviceType" : "Stereo",
+			"Config" : {
+				"DigitalPin": 0,
+				"Make" : "Sony",
+				"Model" : ""
+			}
+		},
+		{
+			"DeviceID" : "tv",
+			"Name" : "Television",
+			"DeviceType" : "Television",
+			"Config" : {
+				"DigitalPin": 1,
+				"Make" : "Sony",
+				"Model" : "Trinitron"
 			}
 		}
 	]
