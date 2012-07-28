@@ -28,7 +28,17 @@ if (include('log4php/Logger.php')) {
 	$log = Logger::getLogger('main');
 }
 else {
-	// We need to make an empty logger
+	// We need to make a fake logger
+	// so that our $log calls don't cause errors
+	class fakeLogger {
+		function fatal($string) {}
+		function error($string) {}
+		function warn($string) {}
+		function info($string) {}
+		function debug($string) {}
+		function trace($string) {}
+	}
+	$log = new fakeLogger();
 }
 
 // Read the HAUS config file
