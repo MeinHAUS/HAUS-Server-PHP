@@ -24,25 +24,32 @@ require_once('./init.php');
 
 
 
-$cntr[] = array(0);
+$cntr = array(0);
 function PrintDeviceMenu($menu, $depth=0) {
+	global $cntr;
 	$i = 0;
 	foreach ($menu as $title => $node) {
 		$cntr[$depth] = ++$i;
 		$num = '';
-		for ($j=0; $j<=$depth; $j++) {
+		for ($j = 0; $j<=$depth; $j++) {
 			$num .= '_'.$cntr[$j];
 		}
 		
-		if ($node['SubMenu']) {
+		if (isset($node['SubMenu'])) {
 			echo "<div id='Menu$num' class='Menu'>\n";
 			echo "<div class='MenuTitle'>$title</div>\n";
 			echo "<div class='SubMenu hide'>\n";
+			
+			// traverse the SubMenu
 			PrintDeviceMenu($node['SubMenu'], $depth+1);
+			
+			// then blank out the depth counter
+			$cntr[$depth+1] = 0;
+			
 			echo "</div>\n";
 			echo "</div>\n";
 		}
-		elseif ($node['Device']) {
+		elseif (isset($node['Device'])) {
 			echo "<div id='Device$num' class='Device'>\n";
 			echo "<div class='DeviceTitle'>$title</div>\n";
 			echo "<div class='DeviceConfig hide'>\n";
