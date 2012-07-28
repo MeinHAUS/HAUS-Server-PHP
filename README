@@ -22,7 +22,7 @@ Package Contents
 At the top level, along with the READY and COPYING files, you should see
 directories for Servers and Devices.
 
-Under the Servers directory, you'll see a list of web servers for which a HAUS
+Under the Servers directory, you'll see a list of technologies for which a HAUS
 Server has been developed.
 
 Under the Deveices directory, you'll see a list of hardware platforms for which
