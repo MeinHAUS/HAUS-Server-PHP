@@ -49,7 +49,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 			echo "</div>\n";
 			echo "</div>\n";
 		}
-		elseif (isset($node['Device'])) {
+		elseif (isset($node['DeviceType'])) {
 			echo "<div id='Device$num' class='Device'>\n";
 			echo "<div class='DeviceTitle'>$title</div>\n";
 			echo "<div class='DeviceConfig hide'>\n";
