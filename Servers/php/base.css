@@ -71,7 +71,7 @@ td {
  * Debug
  */
 #Debug.show {
-	background: #c0d0f0;
+	background: #e0e0e0;
 	border: 1px outset;
 	display: block;
 	left: 5px;
@@ -94,7 +94,7 @@ td {
  * Settings
  */
 #Settings.show {
-	background: #c0d0f0;
+	background: #e0e0e0;
 	border: 1px outset;
 	display: block;
 	left: 5px;
@@ -192,14 +192,14 @@ td {
  * Help
  */
 #Help.show {
-	background: #c0d0f0;
+	background: #e0e0e0;
 	border: 1px outset;
 	display: block;
+	font-size: 0.9em;
 	left: 5px;
 	margin: 5px;
-	padding-top: 4px 4px 4px 4px;
+	padding: 4px 4px 4px 4px;
 	right: 5px;
-	text-align: center;
 }
 #Help.hide {
 	display: none;
