@@ -2,11 +2,35 @@
 	"BasePath" : "/www/htdocs/haus",
 	"BaseURL" : "/haus",
 	"Debug" : "true",
+	"Location" : ["Server Closet", "Mein HAUS"],
+	"Name" : "Mein HAUS",
 	"DeviceMenu" : {
 		"Lights" : {
 			"SubMenu" : {
-				"Living Room Lights" : {
-					"Device" : "DimmerLight",
+				"Porch Light" : {
+					"DeviceID" : "porch",
+					"DeviceIP" : "192.168.1.222",
+					"DeviceType" : "ToggleLight",
+					"Config" : {
+						"DigitalSensor": "True"
+					}
+				},
+				"Side Yard Light" : {
+					"DeviceID" : "side",
+					"DeviceIP" : "192.168.1.222",
+					"DeviceType" : "ToggleLight",
+					"Config" : {
+						"DigitalSensor": "True"
+					}
+				}
+			}
+		},
+		"Living Room" : {
+			"SubMenu" : {
+				"North Lights" : {
+					"DeviceID" : "nlights",
+					"DeviceIP" : "192.168.1.221",
+					"DeviceType" : "DimmerLight",
 					"Config" : {
 						"DigitalSensor": "False",
 						"MinValue" : 0,
@@ -14,22 +38,48 @@
 						"StepSize" : 5
 					}
 				},
-				"Porch Light" : {
-					"Device" : "ToggleLight",
+				"South Lights" : {
+					"DeviceID" : "slights",
+					"DeviceIP" : "192.168.1.221",
+					"DeviceType" : "DimmerLight",
 					"Config" : {
-						"DigitalSensor": "True"
+						"DigitalSensor": "False",
+						"MinValue" : 0,
+						"MaxValue" : 70,
+						"StepSize" : 5
 					}
 				},
-				"Side Yard Light" : {
-					"Device" : "ToggleLight",
+				"Stereo" : {
+					"DeviceID" : "stereo",
+					"DeviceIP" : "192.168.1.221",
+					"DeviceType" : "Stereo",
 					"Config" : {
-						"DigitalSensor": "True"
+						"Make" : "Sony",
+						"Model" : ""
+					}
+				},
+				"Television" : {
+					"DeviceID" : "tv",
+					"DeviceIP" : "192.168.1.221",
+					"DeviceType" : "Television",
+					"Config" : {
+						"Make" : "Sony",
+						"Model" : "Trinitron",
+						"Inputs" : {
+							"1" : "Cable TV",
+							"2" : "Blu-ray Disc Player",
+							"3" : "Empty",
+							"4" : "Empty",
+							"5" : "Wii",
+							"6" : "PlayStation 3"
+						}
 					}
 				}
 			}
 		},
 		"Garage Door" : {
-			"Device" : "GarageDoor",
+			"DeviceIP" : "192.168.1.222",
+			"DeviceType" : "GarageDoor",
 			"Config" : {
 				"DoorMotor" : "True",
 				"DoorSensor" : "True",
