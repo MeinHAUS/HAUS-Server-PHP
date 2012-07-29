@@ -4,63 +4,73 @@
 	"Debug" : "true",
 	"Location" : ["Server Closet", "Mein HAUS"],
 	"Name" : "Mein HAUS",
-	"DeviceMenu" : {
-		"Lights" : {
-			"SubMenu" : {
-				"Porch Light" : {
+	"DeviceMenu" : [
+		{
+			"MenuID" : "lights",
+			"MenuName" : "Lights",
+			"Menu" : [
+				{
 					"DeviceID" : "porch",
 					"DeviceIP" : "192.168.1.222",
+					"DeviceName" : "Porch Light",
 					"DeviceType" : "ToggleLight",
 					"Config" : {
 						"DigitalSensor": "True"
 					}
 				},
-				"Side Yard Light" : {
+				{
 					"DeviceID" : "side",
 					"DeviceIP" : "192.168.1.222",
+					"DeviceName" : "Side Yard Light",
 					"DeviceType" : "ToggleLight",
 					"Config" : {
 						"DigitalSensor": "True"
 					}
 				}
-			}
+			]
 		},
-		"Living Room" : {
-			"SubMenu" : {
-				"North Lights" : {
-					"DeviceID" : "nlights",
+		{
+			"MenuID" : "livingroom",
+			"MenuName" : "Living Room",
+			"Menu" : [
+				{
+					"DeviceID" : "front",
 					"DeviceIP" : "192.168.1.221",
-					"DeviceType" : "DimmerLight",
+					"DeviceName" : "Front Lights",
+					"DeviceType" : "DmxLight",
 					"Config" : {
 						"DigitalSensor": "False",
 						"MinValue" : 0,
-						"MaxValue" : 70,
-						"StepSize" : 5
+						"MaxValue" : 200,
+						"StepSize" : 10
 					}
 				},
-				"South Lights" : {
-					"DeviceID" : "slights",
+				{
+					"DeviceID" : "back",
 					"DeviceIP" : "192.168.1.221",
-					"DeviceType" : "DimmerLight",
+					"DeviceName" : "Back Lights",
+					"DeviceType" : "DmxLight",
 					"Config" : {
 						"DigitalSensor": "False",
 						"MinValue" : 0,
-						"MaxValue" : 70,
-						"StepSize" : 5
+						"MaxValue" : 200,
+						"StepSize" : 10
 					}
 				},
-				"Stereo" : {
+				{
 					"DeviceID" : "stereo",
 					"DeviceIP" : "192.168.1.221",
+					"DeviceName" : "Stereo",
 					"DeviceType" : "Stereo",
 					"Config" : {
 						"Make" : "Sony",
 						"Model" : ""
 					}
 				},
-				"Television" : {
+				{
 					"DeviceID" : "tv",
 					"DeviceIP" : "192.168.1.221",
+					"DeviceName" : "Television",
 					"DeviceType" : "Television",
 					"Config" : {
 						"Make" : "Sony",
@@ -75,10 +85,12 @@
 						}
 					}
 				}
-			}
+			]
 		},
-		"Garage Door" : {
+		{
+			"DeviceID" : "garagedoor",
 			"DeviceIP" : "192.168.1.222",
+			"DeviceName" :"Garage Door",
 			"DeviceType" : "GarageDoor",
 			"Config" : {
 				"DoorMotor" : "True",
@@ -88,5 +100,5 @@
 				}
 			}
 		}
-	}
+	]
 }
