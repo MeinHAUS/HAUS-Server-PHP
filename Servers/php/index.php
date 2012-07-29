@@ -54,7 +54,9 @@ function PrintDeviceMenu($menu, $depth=0) {
 			$DeviceId = 'Device_'.implode('_', $path);
 			array_pop($path);
 			
-			echo "<div class='Device' id='$DeviceId'>\n";
+			$DeviceType = "DeviceType_$node[DeviceType]";
+			
+			echo "<div class='Device $DeviceType' id='$DeviceId'>\n";
 			echo "<div class='DeviceTitle'>$node[DeviceName]</div>\n";
 			echo "<div class='DeviceConfig hide'>\n";
 			echo "<pre>".print_r($node, true)."</pre>\n";

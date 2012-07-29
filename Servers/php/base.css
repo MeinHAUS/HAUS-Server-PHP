@@ -126,6 +126,7 @@ td {
 	display: none;
 }
 
+
 #DeviceMenu .Menu {
 	display: block;
 	left: 5px;
@@ -134,12 +135,12 @@ td {
 }
 
 #DeviceMenu .Menu .MenuTitle {
-	background: #e0e0e0;
+	background: #e0e0e0 url('images/application_view_list.png') no-repeat 4px 8px;
 	border: 2px outset;
 	cursor: pointer;
 	display: block;
 	font-size: 1.5em;
-	padding: 4px;
+	padding: 4px 4px 4px 24px;
 	white-space: nowrap;
 }
 
@@ -155,13 +156,13 @@ td {
 	display: none;
 }
 
+
 #DeviceMenu .Device {
 	background: #e0e0e0;
 	border: 2px outset;
 	display: block;
 	left: 5px;
 	margin: 6px;
-	padding: 4px;
 	right: 5px;
 }
 
@@ -169,6 +170,7 @@ td {
 	cursor: pointer;
 	display: block;
 	font-size: 1.5em;
+	padding: 4px 4px 4px 24px;
 	white-space: nowrap;
 }
 
@@ -186,6 +188,24 @@ td {
 #DeviceMenu .Device .DeviceConfig.hide {
 	display: none;
 }
+
+#DeviceMenu .Device.DeviceType_GarageDoor .DeviceTitle {
+	background: #e0e0e0 url('images/car.png') no-repeat 4px 8px;
+}
+
+#DeviceMenu .Device.DeviceType_DmxLight .DeviceTitle,
+#DeviceMenu .Device.DeviceType_ToggleLight .DeviceTitle {
+	background: #e0e0e0 url('images/lightbulb.png') no-repeat 4px 8px;
+}
+
+#DeviceMenu .Device.DeviceType_Stereo .DeviceTitle {
+	background: #e0e0e0 url('images/music.png') no-repeat 4px 8px;
+}
+
+#DeviceMenu .Device.DeviceType_Television .DeviceTitle {
+	background: #e0e0e0 url('images/television.png') no-repeat 4px 8px;
+}
+
 
 
 /*==============================================================================
