@@ -1,3 +1,71 @@
+//
+// Note: Comments are supported in this config.json file.
+//       Single line comments begin with: //
+//       Multiline comments are wrapped: /* like this */
+//
+//
+// All paramters are required unless otherwise stated.
+//
+//
+// Root-Level config parameters:
+//
+//	BasePath
+//		Absolute system path to HAUS installation
+//
+//	BaseURL
+//		Absolute URL to HAUS installation
+//
+//	Debug
+//		Optional: Enable web-based Debug Mode?
+//
+//	Location
+//		Optional: Geographical location of HAUS server
+//		Each array element will be a new line in a printed address
+//
+//	Name
+//		Optional: A name for the HAUS server
+//	
+//	DeviceMenu
+//		Array of objects which are either menus or deviecs
+//
+//
+// Menu config parameters:
+//
+//	MenuID
+//		A unique identifier for this menu.  It is best to be globally
+//		unique, but it is only required to be unique to it's parent
+//		menu.
+//
+//	MenuName
+//		This is the name that will be displayed on the screen.
+//
+//	Menu
+//		A nested Menu object.
+//
+//
+// Device config parameters:
+//
+//	DeviceID
+//		A unique identifier for this menu.  It is best to be globally
+//		unique, but it is only required to be unique to it's parent
+//		menu.
+//
+//
+//	DeviceIP
+//		The IP of the hardware that is responsible for this device's
+//		connection to the HAUS server.
+//
+//	DeviceName
+//		This is the name that will be displayed on the screen.
+//
+//	DeviceType
+//		The type of device.  This value should be specified in the
+//		documentation provided with the device package.
+//
+//	Config
+//		The configuration parameters specific to this DeviceType.
+//		Documentation should be provided with the device package.
+//
 {
 	"BasePath" : "/www/htdocs/haus",
 	"BaseURL" : "/haus",
