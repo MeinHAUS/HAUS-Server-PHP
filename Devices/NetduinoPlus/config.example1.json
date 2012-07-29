@@ -7,27 +7,27 @@
 	}
 	"Devices" : [
 		{
-			"DeviceID" : "nlights",
-			"Name" : "Living Room Lights",
-			"DeviceType" : "DimmerLight",
+			"DeviceID" : "front",
+			"Name" : "North Lights",
+			"DeviceType" : "DmxLight",
 			"Config" : {
 				"AnalogPin" : 0,
 				"Default" : 0,
 				"MinValue" : 0,
-				"MaxValue" : 70,
-				"StepSize" : 5
+				"MaxValue" : 200,
+				"StepSize" : 10
 			}
 		},
 		{
-			"DeviceID" : "slights",
-			"Name" : "Living Room Lights",
-			"DeviceType" : "DimmerLight",
+			"DeviceID" : "back",
+			"Name" : "South Lights",
+			"DeviceType" : "DmxLight",
 			"Config" : {
 				"AnalogPin" : 1,
 				"Default" : 0,
 				"MinValue" : 0,
-				"MaxValue" : 70,
-				"StepSize" : 5
+				"MaxValue" : 200,
+				"StepSize" : 10
 			}
 		},
 		{
