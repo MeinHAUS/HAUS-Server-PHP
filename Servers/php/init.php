@@ -26,6 +26,7 @@ if (include('log4php/Logger.php')) {
 	Logger::configure('log4php.xml');
 	// get the 'main' logger
 	$log = Logger::getLogger('main');
+	$log->debug('Initializing');
 }
 else {
 	// We need to make a fake logger
