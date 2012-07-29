@@ -24,24 +24,24 @@ require_once('./init.php');
 
 
 
-$cntr = array(0);
+$path = array();
 function PrintDeviceMenu($menu, $depth=0) {
-	global $cntr;
-	$i = 0;
-	foreach ($menu as $title => $node) {
-		$cntr[$depth] = ++$i;
-		$num = '';
-		for ($j = 0; $j<=$depth; $j++) {
-			$num .= '_'.$cntr[$j];
-		}
-		
-		if (isset($node['SubMenu'])) {
-			echo "<div id='Menu$num' class='Menu'>\n";
-			echo "<div class='MenuTitle'>$title</div>\n";
+	global $path;
+	
+	foreach ($menu as $node) {
+		if (isset($node['Menu'])) {
+			array_push($path, $node['MenuID']);
+			$MenuId = 'Menu_'.implode('_', $path);
+			array_pop($path);
+			
+			echo "<div class='Menu' id='$MenuId'>\n";
+			echo "<div class='MenuTitle'>$node[MenuName]</div>\n";
 			echo "<div class='SubMenu hide'>\n";
 			
 			// traverse the SubMenu
-			PrintDeviceMenu($node['SubMenu'], $depth+1);
+			array_push($path, $node['MenuID']);
+			PrintDeviceMenu($node['Menu'], $depth+1);
+			array_pop($path);
 			
 			// then blank out the depth counter
 			$cntr[$depth+1] = 0;
@@ -50,8 +50,12 @@ function PrintDeviceMenu($menu, $depth=0) {
 			echo "</div>\n";
 		}
 		elseif (isset($node['DeviceType'])) {
-			echo "<div id='Device$num' class='Device'>\n";
-			echo "<div class='DeviceTitle'>$title</div>\n";
+			array_push($path, $node['DeviceID']);
+			$DeviceId = 'Device_'.implode('_', $path);
+			array_pop($path);
+			
+			echo "<div class='Device' id='$DeviceId'>\n";
+			echo "<div class='DeviceTitle'>$node[DeviceName]</div>\n";
 			echo "<div class='DeviceConfig hide'>\n";
 			echo "<pre>".print_r($node, true)."</pre>\n";
 			echo "</div>\n";
