@@ -41,10 +41,21 @@ else {
 	$log = new fakeLogger();
 }
 
+$log->debug('Loading minify.json.php');
+include_once('lib/minify.json.php');
+
+if (!function_exists('json_minify')) {
+	$log->warn('Error loading json_minify() from lib/minify.json.php.  Comments in your config.json may cause errors.');
+}
+
 // Read the HAUS config file
 $log->debug('Reading config.json');
-$cfg_json = implode('', file('./config.json'));
-$cfg = json_decode($cfg_json, true);
+$cfg = implode('', file('./config.json'));
+if (function_exists('json_minify')) {
+	$log->debug('Minifying config.json');
+	$cfg = json_minify($cfg);
+}
+$cfg = json_decode($cfg, true);
 
 // Were there problems deconding the json?
 if (is_null($cfg)) {
