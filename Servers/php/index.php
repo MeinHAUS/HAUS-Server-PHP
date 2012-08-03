@@ -34,9 +34,9 @@ function PrintDeviceMenu($menu, $depth=0) {
 			$MenuId = 'Menu_'.implode('_', $path);
 			array_pop($path);
 			
-			echo "<div class='Menu' id='$MenuId'>\n";
-			echo "<div class='MenuTitle'>$node[MenuName]</div>\n";
-			echo "<div class='SubMenu hide'>\n";
+			echo "<div class='Menu' id='$MenuId'>".PHP_EOL;
+			echo "<div class='MenuTitle'>$node[MenuName]</div>".PHP_EOL;
+			echo "<div class='SubMenu hide'>".PHP_EOL;
 			
 			// traverse the SubMenu
 			array_push($path, $node['MenuID']);
@@ -46,8 +46,8 @@ function PrintDeviceMenu($menu, $depth=0) {
 			// then blank out the depth counter
 			$cntr[$depth+1] = 0;
 			
-			echo "</div>\n";
-			echo "</div>\n";
+			echo "</div>".PHP_EOL;
+			echo "</div>".PHP_EOL;
 		}
 		elseif (isset($node['DeviceType'])) {
 			array_push($path, $node['DeviceID']);
@@ -56,12 +56,12 @@ function PrintDeviceMenu($menu, $depth=0) {
 			
 			$DeviceType = "DeviceType_$node[DeviceType]";
 			
-			echo "<div class='Device $DeviceType' id='$DeviceId'>\n";
-			echo "<div class='DeviceTitle'>$node[DeviceName]</div>\n";
-			echo "<div class='DeviceConfig hide'>\n";
-			echo "<pre>".print_r($node, true)."</pre>\n";
-			echo "</div>\n";
-			echo "</div>\n";
+			echo "<div class='Device $DeviceType' id='$DeviceId'>".PHP_EOL;
+			echo "<div class='DeviceTitle'>$node[DeviceName]</div>".PHP_EOL;
+			echo "<div class='DeviceConfig hide'>".PHP_EOL;
+			echo "<pre>".print_r($node, true)."</pre>".PHP_EOL;
+			echo "</div>".PHP_EOL;
+			echo "</div>".PHP_EOL;
 		}
 		else {
 			# not sure what we're looking at
@@ -128,9 +128,9 @@ PrintDeviceMenu($cfg['DeviceMenu'], 0);
 	if (is_array($cfg["Location"]) && !empty($cfg["Location"])) {
 		echo "\t<address>";
 		foreach ($cfg["Location"] as $line) {
-			echo "\t$line<br />\n";
+			echo "\t$line<br />".PHP_EOL;
 		}
-		echo "\t</address>\n";
+		echo "\t</address>".PHP_EOL;
 	}
 ?>
 	<br />
