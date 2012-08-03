@@ -79,7 +79,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1" />
+<meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <title><?php echo $cfg["Name"]; ?></title>
 <link rel="icon" type="image/png" href="images/house.png" />
