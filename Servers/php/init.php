@@ -22,7 +22,7 @@
 error_reporting(E_ALL | E_STRICT);
 
 // First thing we do is detect log4php
-if (include('log4php/Logger.php')) {
+if (include_once('log4php/Logger.php')) {
 	Logger::configure('log4php.xml');
 	// get the 'main' logger
 	$log = Logger::getLogger('main');
