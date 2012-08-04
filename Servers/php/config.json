@@ -25,38 +25,18 @@
 //	Name
 //		Optional: A name for the HAUS server
 //	
-//	DeviceMenu
-//		Array of objects which are either menus or deviecs
-//
-//
-// Menu config parameters:
-//
-//	MenuID
-//		A unique identifier for this menu.  It is best to be globally
-//		unique, but it is only required to be unique to it's parent
-//		menu.
-//
-//	MenuName
-//		This is the name that will be displayed on the screen.
-//
 //	Menu
-//		A nested Menu object.
+//		Hash of objects which are either submenus or deviecs.
+//		Submenus will be "Menu Name" : {Menu Definition}
+//		Submenus may be nested indefinately.
+//		Devices will be "Device Name" : "DeviceID"
 //
 //
 // Device config parameters:
 //
-//	DeviceID
-//		A unique identifier for this menu.  It is best to be globally
-//		unique, but it is only required to be unique to it's parent
-//		menu.
-//
-//
 //	DeviceIP
 //		The IP of the hardware that is responsible for this device's
 //		connection to the HAUS server.
-//
-//	DeviceName
-//		This is the name that will be displayed on the screen.
 //
 //	DeviceType
 //		The type of device.  This value should be specified in the
@@ -67,98 +47,29 @@
 //		Documentation should be provided with the device package.
 //
 {
-	"BasePath" : "/www/htdocs/haus",
+	"BasePath" : "/www/haus.markandcrisha.com/htdocs/haus",
 	"BaseURL" : "/haus",
 	"Debug" : "true",
 	"Location" : ["Server Closet", "Mein HAUS"],
 	"Name" : "Mein HAUS",
-	"DeviceMenu" : [
-		{
-			"MenuID" : "lights",
-			"MenuName" : "Lights",
-			"Menu" : [
-				{
-					"DeviceID" : "porch",
-					"DeviceIP" : "192.168.1.222",
-					"DeviceName" : "Porch Light",
-					"DeviceType" : "ToggleLight",
-					"Config" : {
-						"DigitalSensor": "True"
-					}
-				},
-				{
-					"DeviceID" : "side",
-					"DeviceIP" : "192.168.1.222",
-					"DeviceName" : "Side Yard Light",
-					"DeviceType" : "ToggleLight",
-					"Config" : {
-						"DigitalSensor": "True"
-					}
-				}
-			]
+	"Menu" : {
+		"Lights" : {
+			"Living Room Back Lights" : "lr_back",
+			"Living Room Front Lights" : "lr_front",
+			"Porch Light" : "porch",
+			"Side Yard Light" : "side"
 		},
-		{
-			"MenuID" : "livingroom",
-			"MenuName" : "Living Room",
-			"Menu" : [
-				{
-					"DeviceID" : "front",
-					"DeviceIP" : "192.168.1.221",
-					"DeviceName" : "Front Lights",
-					"DeviceType" : "DmxLight",
-					"Config" : {
-						"DigitalSensor": "False",
-						"MinValue" : 0,
-						"MaxValue" : 200,
-						"StepSize" : 10
-					}
-				},
-				{
-					"DeviceID" : "back",
-					"DeviceIP" : "192.168.1.221",
-					"DeviceName" : "Back Lights",
-					"DeviceType" : "DmxLight",
-					"Config" : {
-						"DigitalSensor": "False",
-						"MinValue" : 0,
-						"MaxValue" : 200,
-						"StepSize" : 10
-					}
-				},
-				{
-					"DeviceID" : "stereo",
-					"DeviceIP" : "192.168.1.221",
-					"DeviceName" : "Stereo",
-					"DeviceType" : "Stereo",
-					"Config" : {
-						"Make" : "Sony",
-						"Model" : ""
-					}
-				},
-				{
-					"DeviceID" : "tv",
-					"DeviceIP" : "192.168.1.221",
-					"DeviceName" : "Television",
-					"DeviceType" : "Television",
-					"Config" : {
-						"Make" : "Sony",
-						"Model" : "Trinitron",
-						"Inputs" : {
-							"1" : "Cable TV",
-							"2" : "Blu-ray Disc Player",
-							"3" : "Empty",
-							"4" : "Empty",
-							"5" : "Wii",
-							"6" : "PlayStation 3"
-						}
-					}
-				}
-			]
+		"Living Room" : {
+			"Back Lights" : "lr_back",
+			"Front Lights" : "lr_front",
+			"Stereo" : "lr_stereo",
+			"Television" : "lr_tv"
 		},
-		{
-			"DeviceID" : "garagedoor",
+		"Garage Door" : "garagedoor"
+	},
+	"Devices" : {
+		"garagedoor" : {
 			"DeviceIP" : "192.168.1.222",
-			"DeviceName" :"Garage Door",
 			"DeviceType" : "GarageDoor",
 			"Config" : {
 				"DoorMotor" : "True",
@@ -167,6 +78,66 @@
 					"DigitalSensor": "True"
 				}
 			}
+		},
+		"lr_back" : {
+			"DeviceIP" : "192.168.1.221",
+			"DeviceType" : "DmxLight",
+			"Config" : {
+				"DigitalSensor": "False",
+				"MinValue" : 0,
+				"MaxValue" : 200,
+				"StepSize" : 10
+			}
+		},
+		"lr_front" : {
+			"DeviceIP" : "192.168.1.221",
+			"DeviceType" : "DmxLight",
+			"Config" : {
+				"DigitalSensor": "False",
+				"MinValue" : 0,
+				"MaxValue" : 200,
+				"StepSize" : 10
+			}
+		},
+		"lr_stereo" :  {
+			"DeviceIP" : "192.168.1.221",
+			"DeviceType" : "Stereo",
+			"Config" : {
+				"Make" : "Sony",
+				"Model" : ""
+			}
+		},
+		"lr_tv" : {
+			"DeviceIP" : "192.168.1.221",
+			"DeviceType" : "Television",
+			"Config" : {
+				"Make" : "Sony",
+				"Model" : "Trinitron",
+				"Inputs" : {
+					"1" : "Cable TV",
+					"2" : "Blu-ray Disc Player",
+					"3" : "Empty",
+					"4" : "Empty",
+					"5" : "Wii",
+					"6" : "PlayStation 3"
+				}
+			}
+		},
+		"porch" : {
+			"DeviceIP" : "192.168.1.222",
+			"DeviceName" : "Porch Light",
+			"DeviceType" : "ToggleLight",
+			"Config" : {
+				"DigitalSensor": "True"
+			}
+		},
+		"side" : {
+			"DeviceIP" : "192.168.1.222",
+			"DeviceName" : "Side Yard Light",
+			"DeviceType" : "ToggleLight",
+			"Config" : {
+				"DigitalSensor": "True"
+			}
 		}
-	]
+	}
 }

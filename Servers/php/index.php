@@ -24,24 +24,25 @@ require_once('./init.php');
 
 
 
-$path = array();
+$cntr = array(0);
 function PrintDeviceMenu($menu, $depth=0) {
-	global $path;
+	global $cfg, $cntr;
+	$i = 0;
 	
-	foreach ($menu as $node) {
-		if (isset($node['Menu'])) {
-			array_push($path, $node['MenuID']);
-			$MenuId = 'Menu_'.implode('_', $path);
-			array_pop($path);
-			
-			echo "<div class='Menu' id='$MenuId'>".PHP_EOL;
-			echo "<div class='MenuTitle'>$node[MenuName]</div>".PHP_EOL;
+	foreach ($menu as $title => $val) {
+		$cntr[$depth] = ++$i;
+		$num = '';
+		for ($j = 0; $j<=$depth; $j++) {
+			$num .= '_'.$cntr[$j];
+		}
+		
+		if (is_array($val)) {
+			echo "<div class='Menu' id='Menu$num'>".PHP_EOL;
+			echo "<div class='MenuTitle'>$title</div>".PHP_EOL;
 			echo "<div class='SubMenu hide'>".PHP_EOL;
 			
 			// traverse the SubMenu
-			array_push($path, $node['MenuID']);
-			PrintDeviceMenu($node['Menu'], $depth+1);
-			array_pop($path);
+			PrintDeviceMenu($val, $depth+1);
 			
 			// then blank out the depth counter
 			$cntr[$depth+1] = 0;
@@ -49,17 +50,15 @@ function PrintDeviceMenu($menu, $depth=0) {
 			echo "</div>".PHP_EOL;
 			echo "</div>".PHP_EOL;
 		}
-		elseif (isset($node['DeviceType'])) {
-			array_push($path, $node['DeviceID']);
-			$DeviceId = 'Device_'.implode('_', $path);
-			array_pop($path);
+		elseif (is_string($val)) {
 			
-			$DeviceType = "DeviceType_$node[DeviceType]";
+			$Device = $cfg['Devices']["$val"];
+			$DeviceType = 'DeviceType_'.$Device['DeviceType'];
 			
-			echo "<div class='Device $DeviceType' id='$DeviceId'>".PHP_EOL;
-			echo "<div class='DeviceTitle'>$node[DeviceName]</div>".PHP_EOL;
+			echo "<div class='Device $DeviceType' id='Device_$val'>".PHP_EOL;
+			echo "<div class='DeviceTitle'>$title</div>".PHP_EOL;
 			echo "<div class='DeviceConfig hide'>".PHP_EOL;
-			echo "<pre>".print_r($node, true)."</pre>".PHP_EOL;
+			echo "<pre>".print_r($Device, true)."</pre>".PHP_EOL;
 			echo "</div>".PHP_EOL;
 			echo "</div>".PHP_EOL;
 		}
@@ -116,7 +115,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 <div id="DeviceMenu" class="show">
 <?php
 
-PrintDeviceMenu($cfg['DeviceMenu'], 0);
+PrintDeviceMenu($cfg['Menu'], 0);
 
 ?>
 </div>
