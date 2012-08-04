@@ -27,7 +27,7 @@ if (strlen($_GET['device'])) {
 	$device = $_GET['device'];
 	
 	# get the device config
-	$config = $cfg["Devices"][$device];
+	$devdef = $cfg["Devices"][$device];
 	$devtype = $cfg["Devices"][$device]['DeviceType'];
 	
 	# add the namespace
@@ -45,7 +45,7 @@ if (strlen($_GET['device'])) {
 	}
 	
 	# attempt to instanciate the device
-	eval('$Device = new '.$devclass.'($config);');
+	eval('$Device = new '.$devclass.'($devdef);');
 
 	if (!$Device) {
 		$log->fatal("Error instanciating device [$devclass].");
