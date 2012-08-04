@@ -25,13 +25,17 @@ $log->trace('Reading lib/'.basename(__FILE__));
 
  class GarageDoor extends Device {
  
- 	protected $DeviceType = "";
+ 	//protected $DeviceIP;
+ 	//protected $DeviceType;
  	protected $cfg;
  	private $log;
  
- 	public function __construct($config) {
+ 	public function __construct($def) {
  		$this->log = \Logger::getLogger(__CLASS__);
- 		$this->cfg = $config;
+ 		
+ 		$this->DeviceIP = $def['DeviceIP'];
+ 		$this->DeviceType = $def['DeviceType'];
+ 		$this->cfg = $def['config'];
  		
  		
  		$this->log->debug('Device loaded: '.__CLASS__);
