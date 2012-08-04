@@ -23,10 +23,11 @@
  
  abstract class Device {
  
- 	protected $DeviceType = "";
+ 	protected $DeviceIP;
+ 	protected $DeviceType;
  	private $log;
  
- 	abstract public function __construct();
+ 	abstract public function __construct($def);
  }
  
  ?>
