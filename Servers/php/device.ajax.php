@@ -26,14 +26,18 @@ if (strlen($_GET['device'])) {
 	# get the requested device id
 	$device = $_GET['device'];
 	
-	# sanitize it
-	preg_replace('[^a-z0-9_-]/', '', $device);
-	$devclass = 'HAUS\\'.$device;
+	# get the device config
+	$config = $cfg["Devices"][$device];
+	$devtype = $cfg["Devices"][$device]['DeviceType'];
+	
+	# add the namespace
+	$devclass = 'HAUS\\'.$devtype;
 	
 	$log->debug('device='.$device);
+	$log->debug('devtype='.$devtype);
 	$log->debug('devclass='.$devclass);
 	
-	include("lib/Device-$device.php");
+	include("lib/Device-$devtype.php");
 	
 	if (!class_exists($devclass)) {
 		$log->fatal("Error loading device files for [$devclass].");
@@ -41,13 +45,14 @@ if (strlen($_GET['device'])) {
 	}
 	
 	# attempt to instanciate the device
-	eval('$Device = new '.$devclass.'();');
+	eval('$Device = new '.$devclass.'($config);');
 
 	if (!$Device) {
 		$log->fatal("Error instanciating device [$devclass].");
 		exit;
 	}
 	
+	echo "done.".PHP_EOL;
 }
 
 
