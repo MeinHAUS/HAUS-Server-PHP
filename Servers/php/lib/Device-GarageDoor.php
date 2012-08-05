@@ -42,6 +42,13 @@ $log->trace('Reading lib/'.basename(__FILE__));
  		return true;
  	}
  	
+ 	
+ 	public function SetDoorPosition() {
+ 	}
+ 	
+ 	public function GetDoorPosition() {
+ 	}
+ 	
  }
  
  ?>
