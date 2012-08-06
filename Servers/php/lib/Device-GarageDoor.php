@@ -25,28 +25,20 @@ $log->trace('Reading lib/'.basename(__FILE__));
 
  class GarageDoor extends Device {
  
- 	//protected $DeviceIP;
- 	//protected $DeviceType;
- 	protected $cfg;
  	private $log;
  
- 	public function __construct($def) {
+ 	protected function init() {
  		$this->log = \Logger::getLogger(__CLASS__);
  		
- 		$this->DeviceIP = $def['DeviceIP'];
- 		$this->DeviceType = $def['DeviceType'];
- 		$this->cfg = $def['config'];
- 		
- 		
- 		$this->log->debug('Device loaded: '.__CLASS__);
+ 		$this->log->debug('Device initialized: ['.__CLASS__.':'.$this->DeviceID.']');
  		return true;
  	}
  	
  	
- 	public function SetDoorPosition() {
+ 	public function GetDoorPosition() {
  	}
  	
- 	public function GetDoorPosition() {
+ 	public function SetDoorPosition() {
  	}
  	
  }

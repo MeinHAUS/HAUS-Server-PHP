@@ -23,11 +23,34 @@
  
  abstract class Device {
  
+ 	protected $DeviceID;
  	protected $DeviceIP;
  	protected $DeviceType;
+ 	protected $cfg;
  	private $log;
  
- 	abstract public function __construct($def);
+ 	public function __construct($def) {
+ 		$this->log = \Logger::getLogger(__CLASS__);
+ 		
+ 		$this->DeviceID = $def['DeviceID'];
+ 		$this->DeviceIP = $def['DeviceIP'];
+ 		$this->DeviceType = $def['DeviceType'];
+ 		$this->cfg = $def['config'];
+ 		
+ 		# run the init() specific to this DeviceType
+ 		$rtn = $this->init();
+ 		
+ 		if ($rtn) {
+ 			$this->log->debug('Device loaded: ['.__CLASS__.':'.$this->DeviceID.']');
+ 		}
+ 		else {
+ 			$this->log->debug('Error loading: ['.__CLASS__.':'.$this->DeviceID.']');
+ 		}
+ 		
+ 		return $rtn;
+ 	}
+ 	
+ 	abstract protected function init();
  }
  
  ?>
