@@ -44,7 +44,7 @@
  			$this->log->debug('Device loaded: ['.__CLASS__.':'.$this->DeviceID.']');
  		}
  		else {
- 			$this->log->debug('Error loading: ['.__CLASS__.':'.$this->DeviceID.']');
+ 			$this->log->debug('Error loading device: ['.__CLASS__.':'.$this->DeviceID.']');
  		}
  		
  		return $rtn;
