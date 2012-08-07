@@ -26,9 +26,14 @@ if (strlen($_GET['device'])) {
 	# get the requested device id
 	$device = $_GET['device'];
 	
-	# get the device config
+	# get the device definition from config.json
 	$devdef = $cfg["Devices"][$device];
-	$devtype = $cfg["Devices"][$device]['DeviceType'];
+	
+	# set the DeviceID
+	$devdef['DeviceID'] = $device;
+	
+	# get the DeviceType
+	$devtype = $devdef['DeviceType'];
 	
 	# add the namespace
 	$devclass = 'HAUS\\'.$devtype;
