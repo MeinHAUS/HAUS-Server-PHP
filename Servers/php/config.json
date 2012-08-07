@@ -85,8 +85,8 @@
 			"Config" : {
 				"DigitalSensor": "False",
 				"MinValue" : 0,
-				"MaxValue" : 200,
-				"StepSize" : 10
+				"MaxValue" : 255,
+				"StepSize" : 5
 			}
 		},
 		"lr_front" : {
@@ -95,8 +95,8 @@
 			"Config" : {
 				"DigitalSensor": "False",
 				"MinValue" : 0,
-				"MaxValue" : 200,
-				"StepSize" : 10
+				"MaxValue" : 255,
+				"StepSize" : 5
 			}
 		},
 		"lr_stereo" :  {
