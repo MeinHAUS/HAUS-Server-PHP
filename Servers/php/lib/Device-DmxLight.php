@@ -19,11 +19,11 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-namespace HAUS;
-require_once('lib/Device.php');
+ namespace HAUS;
+ require_once('lib/Device.php');
 $log->trace('Reading lib/'.basename(__FILE__));
 
- class GarageDoor extends Device {
+ class DmxLight extends Device {
  
  	private $log;
  
@@ -36,23 +36,17 @@ $log->trace('Reading lib/'.basename(__FILE__));
  	
  	public function getControls() {
  		$controls = new \jqmPhp\jqmForm();
- 		$position = new \jqmPhp\jqmRadiogroup('', 'door', 'Door Position', '', '', 'vertical', true);
- 		foreach ($this->cfg["Positions"] as $value => $label) {
-	 		$position->addRadio($label, $value, '', ($this->GetDoorPosition() == $value ? true : false));
- 		}
- 		$controls->add($position);
+ 		$controls->add(new \jqmPhp\jqmRange('', 'brightness', $this->GetLightValue(), $this->cfg["MinValue"], $this->cfg["MaxValue"], 'Brightness', '', true));
+ 		$controls->add(new \jqmPhp\jqmRange('', 'speed', $this->cfg["DefaultSpeed"], $this->cfg["MinValue"], $this->cfg["MaxValue"], 'Speed', '', true));
 
-		// Add the light controls 		
- 		$controls->add(new \jqmPhp\jqmSlider('', '', 'Garage Light', '', 'On', 'on', 'Off', 'off', '', true));
- 		
  		return $controls;
  	}
  	
- 	protected function GetDoorPosition() {
- 		return 0;
+ 	public function GetLightValue() {
+ 		return 50;
  	}
  	
- 	protected function SetDoorPosition() {
+ 	public function SetLightValue() {
  	}
  	
  }
