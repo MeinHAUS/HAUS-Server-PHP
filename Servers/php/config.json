@@ -49,13 +49,13 @@
 {
 	"BasePath" : "/www/haus.markandcrisha.com/htdocs/haus",
 	"BaseURL" : "/haus",
-	"Debug" : "true",
+	"Debug" : "false",
 	"Location" : ["Server Closet", "Mein HAUS"],
 	"Name" : "Mein HAUS",
 	"Menu" : {
 		"Lights" : {
-			"Living Room Back Lights" : "lr_back",
-			"Living Room Front Lights" : "lr_front",
+			"Back Living Room Lights" : "lr_back",
+			"Front Living Room Lights" : "lr_front",
 			"Porch Light" : "porch",
 			"Side Yard Light" : "side"
 		},
@@ -70,10 +70,16 @@
 	"Devices" : {
 		"garagedoor" : {
 			"DeviceIP" : "192.168.1.222",
+			"DeviceName" : "GarageDoor",
 			"DeviceType" : "GarageDoor",
 			"Config" : {
 				"DoorMotor" : "True",
 				"DoorSensor" : "True",
+				"Positions" : {
+					"1" : "Open",
+					"2" : "Cracked",
+					"0" : "Closed"
+				},
 				"ToggleLight" : {
 					"DigitalSensor": "True"
 				}
@@ -81,26 +87,51 @@
 		},
 		"lr_back" : {
 			"DeviceIP" : "192.168.1.221",
+			"DeviceName" : "Back Living Room Lights",
 			"DeviceType" : "DmxLight",
 			"Config" : {
 				"DigitalSensor": "False",
 				"MinValue" : 0,
 				"MaxValue" : 255,
-				"StepSize" : 5
+				"DefaultSpeed" : 100,
+				"Presets" : {
+					"High": {
+						"Value" : 200
+					},
+					"Dim": {
+						"Value" : 20
+					},
+					"Low": {
+						"Value" : 50
+					}
+				}
 			}
 		},
 		"lr_front" : {
 			"DeviceIP" : "192.168.1.221",
+			"DeviceName" : "Front Living Room Lights",
 			"DeviceType" : "DmxLight",
 			"Config" : {
 				"DigitalSensor": "False",
 				"MinValue" : 0,
 				"MaxValue" : 255,
-				"StepSize" : 5
+				"DefaultSpeed" : 100,
+				"Presets" : {
+					"High": {
+						"Value" : 200
+					},
+					"Dim": {
+						"Value" : 20
+					},
+					"Low": {
+						"Value" : 50
+					}
+				}
 			}
 		},
 		"lr_stereo" :  {
 			"DeviceIP" : "192.168.1.221",
+			"DeviceName" : "Stereo",
 			"DeviceType" : "Stereo",
 			"Config" : {
 				"Make" : "Sony",
@@ -109,6 +140,7 @@
 		},
 		"lr_tv" : {
 			"DeviceIP" : "192.168.1.221",
+			"DeviceName" : "Television",
 			"DeviceType" : "Television",
 			"Config" : {
 				"Make" : "Sony",
@@ -116,8 +148,6 @@
 				"Inputs" : {
 					"1" : "Cable TV",
 					"2" : "Blu-ray Disc Player",
-					"3" : "Empty",
-					"4" : "Empty",
 					"5" : "Wii",
 					"6" : "PlayStation 3"
 				}
