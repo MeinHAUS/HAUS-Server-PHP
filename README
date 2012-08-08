@@ -7,50 +7,16 @@ About HAUS
 The goal of the HAUS project is to provide a means to connect every home device
 to a HAUS server, which can be used to automate tasks or provide remote control
 capabilities to users.
-
-HAUS is designed with two parts:
-    o A single, front-facing HAUS Server, which is responsible for providing a
-      user interface.
-    o One or more HAUS Devices, which listen for commands from the HAUS Server
-      and respond by performing a home automation task.
-================================================================================
-
-
-================================================================================
-Package Contents
---------------------------------------------------------------------------------
-At the top level, along with the READY and COPYING files, you should see
-directories for Servers and Devices.
-
-Under the Servers directory, you'll see a list of technologies for which a HAUS
-Server has been developed.
-
-Under the Deveices directory, you'll see a list of hardware platforms for which
-HAUS Devices have been developed.
-
-Your package contents may look something like this:
-    ~/COPYING
-    ~/README
-    ~/Devices/
-        Netduino/
-            Lights/
-            Sprinklers/
-        NetduinoPlus/
-            DoorLock/
-            GarageDoor/
-            SolarPannels/
-            Thermostat/
-    ~/Servers/
-        csharp/
-        java/
-        php/
 ================================================================================
 
 
 ================================================================================
 Installation
 --------------------------------------------------------------------------------
-Installation notes should be included with each HAUS Server and HAUS Device.
+You should be able to extract the project into a web accessible directory and be
+off and running.
+
+Edit the config.json to suite your needs.
 ================================================================================
 
 
