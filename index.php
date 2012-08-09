@@ -139,7 +139,7 @@ function PrintDeviceMenu($menu, $depth=0) {
 	}
 ?>
 	<br />
-	<b>GitHub:</b> <a href="https://github.com/mhensler/HAUS" target="_blank">github.com/mhensler/HAUS</a><br />
+	<b>GitHub:</b> <a href="https://github.com/MeinHAUS" target="_blank">https://github.com/MeinHAUS</a><br />
 	<b>Icons:</b> <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">Silk Icon Set</a> by <a href="mailto:mjames@gmail.com">Mark James</a><br />
 
 </div><!-- /content -->
