@@ -19,8 +19,8 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-require_once('./init.php');
-require_once('lib/jqmPhp/jqmPhp.php');
+require_once('./lib/init.php');
+require_once($cfg['BasePath'].'/lib/jqmPhp/jqmPhp.php');
 
 
 if (strlen($_GET['device'])) {
@@ -43,7 +43,7 @@ if (strlen($_GET['device'])) {
 	$log->debug('devtype='.$devtype);
 	$log->debug('devclass='.$devclass);
 	
-	require_once("lib/Device-$devtype.php");
+	require_once($cfg['BasePath']."/lib/Device-$devtype.php");
 	
 	if (!class_exists($devclass)) {
 		$log->fatal("Error loading device files for [$devclass].");

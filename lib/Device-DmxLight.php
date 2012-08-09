@@ -20,7 +20,7 @@
  *
  ******************************************************************************/
  namespace HAUS;
- require_once('lib/Device.php');
+ require_once($cfg['BasePath'].'/lib/Device.php');
 $log->trace('Reading lib/'.basename(__FILE__));
 
  class DmxLight extends Device {

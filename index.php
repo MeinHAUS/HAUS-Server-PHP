@@ -19,7 +19,7 @@
  * along with HAUS.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-require_once('./init.php');
+require_once('./lib/init.php');
 
 
 

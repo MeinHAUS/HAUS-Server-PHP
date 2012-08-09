@@ -47,7 +47,6 @@
 //		Documentation should be provided with the device package.
 //
 {
-	"BasePath" : "/www/haus.markandcrisha.com/htdocs/haus",
 	"BaseURL" : "/haus",
 	"Debug" : "false",
 	"Location" : ["Server Closet", "Mein HAUS"],

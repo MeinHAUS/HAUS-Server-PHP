@@ -21,9 +21,11 @@
  ******************************************************************************/
 error_reporting(E_ALL | E_STRICT);
 
+$basePath = realpath(dirname(__FILE__).'/../');
+
 // First thing we do is detect log4php
 if (include_once('log4php/Logger.php')) {
-	Logger::configure('log4php.xml');
+	Logger::configure($basePath.'/config/log4php.xml');
 	// get the 'main' logger
 	$log = Logger::getLogger('main');
 	$log->debug('Initializing');
@@ -31,19 +33,19 @@ if (include_once('log4php/Logger.php')) {
 else {
 	// We need to make a fake logger
 	// so that our $log calls don't cause errors
-	class fakeLogger {
-		function fatal($string) {}
-		function error($string) {}
-		function warn($string) {}
-		function info($string) {}
-		function debug($string) {}
-		function trace($string) {}
+	class hausLogger {
+		public function fatal($string) {error_log($string);}
+		public function error($string) {error_log($string);}
+		public function warn($string) {}
+		public function info($string) {}
+		public function debug($string) {}
+		public function trace($string) {}
 	}
-	$log = new fakeLogger();
+	$log = new hausLogger();
 }
 
 $log->debug('Loading minify.json.php');
-include_once('lib/minify.json.php');
+include_once($basePath.'/lib/minify.json.php');
 
 if (!function_exists('json_minify')) {
 	$log->warn('Error loading json_minify() from lib/minify.json.php.  Comments in your config.json may cause errors.');
@@ -51,7 +53,7 @@ if (!function_exists('json_minify')) {
 
 // Read the HAUS config file
 $log->debug('Reading config.json');
-$cfg = implode('', file('./config.json'));
+$cfg = implode('', file($basePath.'/config/config.json'));
 if (function_exists('json_minify')) {
 	$log->debug('Minifying config.json');
 	$cfg = json_minify($cfg);
@@ -65,6 +67,10 @@ if (is_null($cfg)) {
 
 // Make 'Debug' usable
 $cfg['Debug'] = toBool($cfg['Debug']);
+
+// add our discovered BasePath
+$cfg['BasePath'] = $basePath;
+unset($basePath);
 
 // log the config
 $log->trace('$cfg='.print_r($cfg, true));
