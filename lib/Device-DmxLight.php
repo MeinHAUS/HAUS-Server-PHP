@@ -38,8 +38,18 @@ $log->trace('Reading lib/'.basename(__FILE__));
  		$controls = new \jqmPhp\jqmForm();
  		$controls->add(new \jqmPhp\jqmRange('', 'brightness', $this->GetLightValue(), $this->cfg["MinValue"], $this->cfg["MaxValue"], 'Brightness', '', true));
  		$controls->add(new \jqmPhp\jqmRange('', 'speed', $this->cfg["DefaultSpeed"], $this->cfg["MinValue"], $this->cfg["MaxValue"], 'Speed', '', true));
-
- 		return $controls;
+ 		
+    		$reset = new \jqmphp\jqmButton();
+    		$reset->text("Reset")->attribute('type', 'submit');
+    		
+    		$set = new \jqmphp\jqmButton();
+    		$set->text("Set")->theme('b')->attribute('type', 'submit');
+ 		
+ 		$buttons = new \jqmPhp\jqmGrid('', 'a', array($reset), array($set));
+ 		
+ 		$controls->add($buttons);
+ 		
+		return $controls;
  	}
  	
  	public function GetLightValue() {
