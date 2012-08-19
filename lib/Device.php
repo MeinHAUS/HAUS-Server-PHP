@@ -20,14 +20,33 @@
  *
  ******************************************************************************/
 namespace HAUS;
- 
+
+/**
+ * 
+ * 
+ * 
+ * @property string $DeviceID unique DeviceID used for this device in config.json
+ * @property string $DeviceIP IP to use for communication with this device's hardware
+ * @property string $DeviceName A short, yet descriptive name for this device
+ * @property integer $DevicePort TCP port to use for communication with this device's hardware
+ * @property string $DeviceType The Device Type of this device
+ * @property string $Password Password to use if the device hardware requires credentials
+ * @property string $Username Username to use if the device hardware requires credentials
+ * @property boolean $UseHTTPS Use HTTPS for all communication with this device's hardware?
+ * 
+ */
 abstract class Device {
  
+ 	// properties for a base Device
  	protected $DeviceID;
  	protected $DeviceIP;
  	protected $DeviceName;
  	protected $DeviceType;
+ 	
+ 	// config for an instance of an extended Device
  	protected $cfg;
+ 	
+ 	// a log instance specific to this Device class
  	private $log;
  
 	protected $_getters = array('DeviceID', 'DeviceIP', 'DeviceName', 'DeviceType');
