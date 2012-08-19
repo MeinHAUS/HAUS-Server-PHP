@@ -41,7 +41,11 @@ abstract class Device {
  	protected $DeviceID;
  	protected $DeviceIP;
  	protected $DeviceName;
+ 	protected $DevicePort;
  	protected $DeviceType;
+ 	protected $Password;
+ 	protected $Username;
+ 	protected $UseHTTPS;
  	
  	// config for an instance of an extended Device
  	protected $cfg;
@@ -66,6 +70,11 @@ abstract class Device {
  				'Password', 'Username', 'UseHTTPS') as $var) {
  			$this->$var = $def[$var];
  		}
+ 		
+ 		// a little clean-up
+ 		$this->DevicePort = (is_int($this->DevicePort) ? $this->DevicePort : $cfg['DefaultDevicePort']);
+ 		$this->UseHTTPS = toBool($this->UseHTTPS);
+ 		
  		# run the init() specific to this DeviceType
  		$rtn = $this->init();
  		
