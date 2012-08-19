@@ -49,20 +49,27 @@ abstract class Device {
  	// a log instance specific to this Device class
  	private $log;
  
-	protected $_getters = array('DeviceID', 'DeviceIP', 'DeviceName', 'DeviceType');
+ 	// list of Device properties that we'll allow read access to
+	protected $_getters = array('DeviceID', 'DeviceIP', 'DeviceName', 'DevicePort', 'DeviceType',
+				'Password', 'Username', 'UseHTTPS');
+	// list of Device properties that we'll allow write access to
 	protected $_setters = array();
   
  	public function __construct($def) {
  		$this->log = \Logger::getLogger(__CLASS__);
  		
- 		$this->DeviceID = $def['DeviceID'];
- 		$this->DeviceIP = $def['DeviceIP'];
- 		$this->DeviceName = $def['DeviceName'];
- 		$this->DeviceType = $def['DeviceType'];
+ 		global $cfg;
  		$this->cfg = $def['Config'];
  		
+ 		// populate our properties
+ 		foreach (array(	'DeviceID', 'DeviceIP', 'DeviceName', 'DevicePort', 'DeviceType',
+ 				'Password', 'Username', 'UseHTTPS') as $var) {
+ 			$this->$var = $def[$var];
+ 		}
  		# run the init() specific to this DeviceType
  		$rtn = $this->init();
+ 		
+ 		$this->log->debug(print_r($this, true));
  		
  		if ($rtn) {
  			$this->log->debug('Device loaded: ['.__CLASS__.':'.$this->DeviceID.']');
