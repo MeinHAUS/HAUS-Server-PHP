@@ -118,6 +118,35 @@ abstract class Device {
 		return $this->cfg;
 	}
 
+	protected function initPest() {
+		$log->debug('Loading Pest/PestJSON.php');
+		require_once($cfg['BasePath'].'/lib/Pest/PestJSON.php');
+		if (class_exists('\\Pest\\PestJSON')) {
+			$log->debug('Loaded Pest/PestJSON.php');
+		}
+		else {
+			$log->fatal('Error loading Pest/PestJSON.php.');
+			return NULL;
+		}
+
+		$DevBaseURL = ($this->UseHTTPS ? 'https' : 'http').'://'.$this->DeviceIP.':'.$this->DevicePort;
+		$this->log->debug('DevBaseURL = '.$DevBaseURL);
+		
+		$pest = new \Pest\Pest($DevBaseURL);
+		
+		if ($this->Username || $this->Password) {
+			$pest->setupAuth($this->Username, $this->Password);
+		}
+		
+		return $pest;
+	}
+
+	protected function get($url) {
+		$pest = $this->initPest();
+		
+		return $this->pest->get($url);
+	}
+
  	abstract public function getControls();
  	abstract protected function init();
  	
