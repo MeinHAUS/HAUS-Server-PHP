@@ -72,6 +72,9 @@ $cfg['Debug'] = toBool($cfg['Debug']);
 $cfg['BasePath'] = $basePath;
 unset($basePath);
 
+// double check the DefaultDevicePort
+$cfg['DefaultDevicePort'] = (is_int($cfg['DefaultDevicePort']) ? $cfg['DefaultDevicePort'] : 80);
+
 // log the config
 $log->trace('$cfg='.print_r($cfg, true));
 
