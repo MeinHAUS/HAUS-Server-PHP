@@ -7,16 +7,17 @@
 // All paramters are required unless otherwise stated.
 //
 //
-// Root-Level config parameters:
-//
-//	BasePath
-//		Absolute system path to HAUS installation
+// Root-Level Parameters:
 //
 //	BaseURL
 //		Absolute URL to HAUS installation
 //
 //	Debug
 //		Optional: Enable web-based Debug Mode?
+//
+//	DefaultDevicePort
+//		Optional: The TCP port to fall back on when a Device does not
+//		specify a port to use.
 //
 //	Location
 //		Optional: Geographical location of HAUS server
@@ -32,15 +33,35 @@
 //		Devices will be "Device Name" : "DeviceID"
 //
 //
-// Device config parameters:
+//	Devices
+//		Hash of device objects.  The key for each device hash is the
+//		DeviceID. The value of each device hash contains Device
+//		Parameters, as described below.
+//
+// Device Parameters:
 //
 //	DeviceIP
 //		The IP of the hardware that is responsible for this device's
 //		connection to the HAUS server.
 //
+//	DeviceName
+//		The name to display on this device's control page.
+//
+//	DevicePort
+//		The TCP port to use when communicating with this device.
+//
 //	DeviceType
 //		The type of device.  This value should be specified in the
 //		documentation provided with the device package.
+//
+//	Password
+//		Optional: Password to use if the device requires credentials.
+//
+//	Username
+//		Optional: Username to use if the device requires credentials.
+//
+//	UseHTTPS
+//		Optional: Default is "false".
 //
 //	Config
 //		The configuration parameters specific to this DeviceType.
@@ -49,6 +70,7 @@
 {
 	"BaseURL" : "/haus",
 	"Debug" : "false",
+	"DefaultDevicePort" : 80,
 	"Location" : ["Server Closet", "Mein HAUS"],
 	"Name" : "Mein HAUS",
 	"Menu" : {
@@ -71,6 +93,9 @@
 			"DeviceIP" : "192.168.1.222",
 			"DeviceName" : "GarageDoor",
 			"DeviceType" : "GarageDoor",
+			"Password" : "haus_pass",
+			"Username" : "haus_user",
+			"UseHTTPS" : "false",
 			"Config" : {
 				"DoorMotor" : "True",
 				"DoorSensor" : "True",
